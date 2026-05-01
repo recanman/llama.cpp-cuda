@@ -15,11 +15,12 @@ The official llama.cpp repository does not provide pre-built CUDA binaries. This
 
 ### CUDA Versions
 - CUDA 12.8
+- CUDA 13.2
 
 ### GPU Architectures
 
 | Compute Capability | GPU Examples |
-|-------------------|--------------|----------------|------------|
+|-------------------|--------------|
 | 6.1 | Titan XP, Tesla P40, GTX 10xx |
 | 7.0 | Tesla V100 |
 | 7.5 | Tesla T4, RTX 2000 series, Quadro RTX |
@@ -35,12 +36,12 @@ The official llama.cpp repository does not provide pre-built CUDA binaries. This
 ### Download
 
 1. Go to the [Releases](../../releases) page
-2. Download the tarball (e.g., `llama.cpp-bXXXX-cuda-12.8.tar.gz`)
+2. Download the tarball (e.g., `llama.cpp-bXXXX-cuda-<version>.tar.gz`)
 3. Extract the archive:
 
 ```bash
-tar -xzf llama.cpp-bXXXX-cuda-12.8.tar.gz
-cd cuda-12.6
+tar -xzf llama.cpp-bXXXX-cuda-<version>.tar.gz
+cd cuda-<version>
 ```
 
 ### Run
@@ -71,9 +72,8 @@ cat VERSION.txt
 ## System Requirements
 
 - NVIDIA GPU with compute capability 7.5 or higher
-- Appropriate NVIDIA driver for your CUDA version:
-  - CUDA 12.8+: Driver >= 570.15
-- Linux x86_64 (Ubuntu 22.04 compatible)
+- Appropriate NVIDIA driver for your CUDA version
+- - Linux x86_64 (Ubuntu 22.04 compatible)
 
 ## Build Process
 
