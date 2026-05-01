@@ -58,11 +58,15 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        cuda_version: ['12.8.1']
+        cuda_version: ['12.8.1', '13.2.1']
         include:
           - cuda_version: '12.8.1'
             cuda_version_short: '12.8'
             cuda_tag: '12.8.1-cudnn-devel-ubuntu22.04'
+            architectures: '75-virtual;80-virtual;86-virtual;89-virtual;90-virtual;100-virtual;120-virtual'
+          - cuda_version: '13.2.1'
+            cuda_version_short: '13.2'
+            cuda_tag: '13.2.1-cudnn-devel-ubuntu22.04'
             architectures: '75-virtual;80-virtual;86-virtual;89-virtual;90-virtual;100-virtual;120-virtual'
     
     steps:
@@ -224,7 +228,10 @@ jobs:
             **Commit:** ${{ needs.check-release.outputs.release_hash }}
             
             ## CUDA Versions
-            - CUDA 12.8 - Architectures: 7.5, 8.0, 8.6, 8.9, 9.0, 10.0, 12.0
+            - CUDA 12.8
+            - CUDA 13.1
+            
+            **Architectures**: 7.5, 8.0, 8.6, 8.9, 9.0, 10.0, 12.0
             
             ## Architecture Reference
             - 7.5: Tesla T4, RTX 20xx series, Quadro RTX
@@ -238,7 +245,7 @@ jobs:
             ## Usage
             Download the appropriate tarball for your CUDA version and extract:
             ```bash
-            tar -xzf llama.cpp-${{ needs.check-release.outputs.release_tag }}-cuda-12.8.tar.gz
+            tar -xzf llama.cpp-${{ needs.check-release.outputs.release_tag }}-cuda-<version>.tar.gz
             ./llama-cli --help
             ```
           files: release-assets/*
